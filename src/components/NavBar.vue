@@ -1,13 +1,15 @@
 <template>
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app color="white" light>
         <div class="d-flex align-center">
-            <v-img alt="Vuetify Logo" class="shrink mr-2" contain
-                src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png" transition="scale-transition"
-                width="40" />
+            <v-icon size="40" color="black" class="appbar-cursor">mdi-menu</v-icon>
         </div>
 
         <v-spacer></v-spacer>
-        <v-icon>fa-user</v-icon>
+        <div class="d-flex align-center">
+            <h2>ConnectME</h2>
+        </div>
+        <v-spacer></v-spacer>
+        <v-icon size="40" color="black" class="appbar-cursor">mdi-chat-processing-outline</v-icon>
     </v-app-bar>
 </template>
 
@@ -17,4 +19,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.appbar-cursor {
+    cursor: pointer;
+}
+</style>
