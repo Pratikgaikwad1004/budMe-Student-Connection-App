@@ -9,7 +9,8 @@
                     <input type="text" name="txt" v-model="signupUsername" placeholder="User name" required="">
                     <input type="email" name="email" v-model="signupEmail" placeholder="Email" required="">
                     <div style="position: relative;">
-                        <input type="password" name="pswd" v-model="signupPassword" placeholder="Password" required="" id="myInput">
+                        <input type="password" name="pswd" v-model="signupPassword" placeholder="Password" required=""
+                            id="myInput">
                         <div class="eyebtn" v-if="password" @click="showPass()">
                             <span><v-icon color="black">mdi-eye-outline</v-icon></span>
                         </div>
@@ -155,6 +156,7 @@ export default {
     margin-top: 7px;
     cursor: pointer;
 }
+
 .container {
     margin: 0;
     padding: 0;
