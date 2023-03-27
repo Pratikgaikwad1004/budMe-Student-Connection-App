@@ -1,37 +1,51 @@
 <template>
-    <body>
+    <div class="container">
         <div class="main">
             <input type="checkbox" id="chk" aria-hidden="true">
 
             <div class="signup">
-                <form>
+                <div>
                     <label for="chk" aria-hidden="true">Sign up</label>
-                    <input type="text" name="txt" placeholder="User name" required="">
-                    <input type="email" name="email" placeholder="Email" required="">
-                    <input type="password" name="pswd" placeholder="Password" required="">
-                    <button>Sign up</button>
-                </form>
+                    <input type="text" name="txt" v-model="signupUsername" placeholder="User name" required="">
+                    <input type="email" name="email" v-model="signupEmail" placeholder="Email" required="">
+                    <div style="position: relative;">
+                        <input type="password" name="pswd" v-model="signupPassword" placeholder="Password" required="" id="myInput">
+                        <div class="eyebtn" v-if="password" @click="showPass()">
+                            <span><v-icon color="black">mdi-eye-outline</v-icon></span>
+                        </div>
+                        <div class="eyebtn" @click="showPass()" v-else>
+                            <span><v-icon color="black">mdi-eye-off-outline</v-icon></span>
+                        </div>
+                    </div>
+                    <button @click="signup()">Sign up</button>
+                </div>
             </div>
 
             <div class="login">
-                <form>
+                <div>
                     <label for="chk" aria-hidden="true">Login</label>
-                    <input type="email" name="email" placeholder="Email" required="">
-                    <input type="password" name="pswd" placeholder="Password" required="">
-                    <button>Login</button>
-                </form>
+                    <input type="email" name="email" v-model="loginEmail" placeholder="Email" required="">
+                    <input type="password" name="pswd" v-model="loginPassword" placeholder="Password" required="">
+                    <button @click="login()">Login</button>
+                </div>
             </div>
         </div>
-    </body>
+    </div>
 </template>
      
     
     
 <script>
+import router from '@/router';
 export default {
     data() {
         return {
             password: false,
+            signupUsername: "",
+            signupEmail: "",
+            signupPassword: "",
+            loginEmail: "",
+            loginPassword: "",
         }
     },
     methods: {
@@ -44,6 +58,88 @@ export default {
                 x.type = "password";
                 this.password = false;
             }
+        },
+
+        signup() {
+            try {
+                if (this.signupUsername.length === 0) {
+                    return alert("Enter Username");
+                }
+                if (this.signupEmail.length === 0) {
+                    return alert("Enter Username");
+                }
+                if (this.signupPassword.length === 0) {
+                    return alert("Enter Password");
+                }
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+
+                var raw = JSON.stringify({
+                    "email": this.signupEmail,
+                    "username": this.signupUsername,
+                    "password": this.signupPassword
+                });
+
+                var requestOptions = {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: raw,
+                    redirect: 'follow'
+                };
+
+                fetch("http://localhost:3000/api/v1/auth/signup", requestOptions)
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result.authtoken) {
+                            return alert("Account created");
+                        } else {
+                            return alert("Some error occured")
+                        }
+                    })
+                    .catch(error => console.log('error', error));
+            } catch (error) {
+                console.log(error);
+            }
+        },
+
+        login() {
+            try {
+                if (this.loginEmail.length === 0) {
+                    return alert("Enter  Username");
+                }
+                if (this.loginPassword.length === 0) {
+                    return alert("Enter Password");
+                }
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+
+                var raw = JSON.stringify({
+                    "email": this.loginEmail,
+                    "password": this.loginPassword
+                });
+
+                var requestOptions = {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: raw,
+                    redirect: 'follow'
+                };
+
+                fetch("http://localhost:3000/api/v1/auth/login", requestOptions)
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result.authtoken) {
+                            localStorage.setItem("token", result.authtoken);
+                            router.push("/");
+                            return alert("Login Successful");
+                        } else {
+                            return alert("Some Error Occured");
+                        }
+                    })
+                    .catch(error => console.log('error', error));
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 }
@@ -51,7 +147,15 @@ export default {
     
      
 <style scoped>
-body {
+.eyebtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 80px;
+    margin-top: 7px;
+    cursor: pointer;
+}
+.container {
     margin: 0;
     padding: 0;
     display: flex;
@@ -155,4 +259,5 @@ button:hover {
 
 #chk:checked~.signup label {
     transform: scale(.5);
-}</style>
+}
+</style>
