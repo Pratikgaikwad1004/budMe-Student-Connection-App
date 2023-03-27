@@ -9,7 +9,7 @@
     name: 'Home',
 
     components: {
-      NavBar
+      NavBar,
     },
   }
 </script>

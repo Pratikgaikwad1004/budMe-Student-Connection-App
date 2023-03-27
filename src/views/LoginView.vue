@@ -8,16 +8,8 @@
                     <label for="chk" aria-hidden="true">Sign up</label>
                     <input type="text" name="txt" placeholder="User name" required="">
                     <input type="email" name="email" placeholder="Email" required="">
-                    <div style="position: relative;">
-                        <input type="password" name="pswd" placeholder="Password" required="" id="myInput">
-                        <div class="eyebtn" v-if="password" @click="showPass()">
-                            <span><v-icon color="black">mdi-eye-outline</v-icon></span>
-                        </div>
-                        <div class="eyebtn" @click="showPass()" v-else>
-                            <span><v-icon color="black">mdi-eye-off-outline</v-icon></span>
-                        </div>
-                    </div>
-                    <button type="submit">Sign up</button>
+                    <input type="password" name="pswd" placeholder="Password" required="">
+                    <button>Sign up</button>
                 </form>
             </div>
 
@@ -32,9 +24,9 @@
         </div>
     </body>
 </template>
- 
-
-
+     
+    
+    
 <script>
 export default {
     data() {
@@ -56,22 +48,9 @@ export default {
     }
 }
 </script>
-
-
-
-
-
-
-
+    
+     
 <style scoped>
-.eyebtn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-right: 80px;
-    margin-top: 7px;
-    cursor: pointer;
-}
 body {
     margin: 0;
     padding: 0;
@@ -176,5 +155,4 @@ button:hover {
 
 #chk:checked~.signup label {
     transform: scale(.5);
-}
-</style>
+}</style>
