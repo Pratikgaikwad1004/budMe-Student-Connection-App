@@ -67,7 +67,7 @@ export default {
                     return alert("Enter Username");
                 }
                 if (this.signupEmail.length === 0) {
-                    return alert("Enter Username");
+                    return alert("Enter Email");
                 }
                 if (this.signupPassword.length === 0) {
                     return alert("Enter Password");
