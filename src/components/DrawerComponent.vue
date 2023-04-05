@@ -30,12 +30,6 @@
             </v-list-item>
             <v-list-item link>
                 <v-list-item-icon>
-                    <v-icon>mdi-exit-to-app</v-icon>
-                </v-list-item-icon>
-                <v-list-item-title>Exit</v-list-item-title>
-            </v-list-item>
-            <v-list-item link>
-                <v-list-item-icon>
                     <v-icon>mdi-download</v-icon>
                 </v-list-item-icon>
                 <v-list-item-title>Saved</v-list-item-title>
@@ -46,6 +40,12 @@
                 </v-list-item-icon>
                 <v-list-item-title>My Projects</v-list-item-title>
             </v-list-item>
+            <v-list-item @click="logout()" link>
+                <v-list-item-icon>
+                    <v-icon>mdi-exit-to-app</v-icon>
+                </v-list-item-icon>
+                <v-list-item-title>Exit</v-list-item-title>
+            </v-list-item>
         </v-list>
     </v-navigation-drawer>
 </template>
@@ -55,6 +55,13 @@ export default {
     data() {
         return {
 
+        }
+    },
+    methods: {
+        logout() {
+            this.$router.push({ name: 'login' })
+            localStorage.removeItem("token");
+            return alert("Logged out successfully.")
         }
     }
 }
