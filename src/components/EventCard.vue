@@ -1,34 +1,28 @@
 <template>
-    <v-card :loading="loading" class="mx-auto my-12" max-width="374">
+    <v-col col="3">
+    <v-card :loading="loading" class="mx-auto my-5" max-width="374">
         <template slot="progress">
-            <v-progress-linear color="deep-purple" height="10" indeterminate></v-progress-linear>
+            <!-- <v-progress-linear color="deep-purple" height="1" indeterminate></v-progress-linear> -->
         </template>
         
-        <v-img height="250" src="https://imageio.forbes.com/specials-images/imageserve/60e6624991d8f1ab67ca0980/Kamen-founded-FIRST-to-improve-technical-education-opportunities-for-youth-/960x0.jpg?format=jpg&width=960"></v-img>
+        <v-img height="200" src="https://imageio.forbes.com/specials-images/imageserve/60e6624991d8f1ab67ca0980/Kamen-founded-FIRST-to-improve-technical-education-opportunities-for-youth-/960x0.jpg?format=jpg&width=960"></v-img>
         
-        <v-card-title>RoboWars</v-card-title>
+        <v-card-title class="py-0 pt-3">RoboWars</v-card-title>
         
-        <v-card-text>
-            <v-row align="center" class="mx-0">
-                <v-rating :value="4.5" color="amber" dense half-increments readonly size="14"></v-rating>
-
-                <div class="grey--text ms-4">
-                    4.5 (413)
-                </div>
-            </v-row>
-            
-            <div class="my-4 text-subtitle-1">
+        <v-card-text class="py-0">
+                    
+            <div class="text-subtitle-1">
                 Sit,Pune
             </div>
 
-            <div>Robots built by students, divided in teams, compete to survive. The last robot standing wins the round and takes away the prize !</div>
+            <div class="mt-2">Robots built by students, divided in teams, compete to survive. The last robot standing wins the round and takes away the prize !</div>
         </v-card-text>
 
-        <v-divider class="mx-4"></v-divider>
+        <v-divider></v-divider>
         
-        <v-card-title>Book Your Slot</v-card-title>
+        <v-card-title class="py-0">Book Your Slot</v-card-title>
 
-        <v-card-text>
+        <v-card-text class="py-0">
             <v-chip-group v-model="selection" active-class="deep-purple accent-4 white--text" column>
                 <v-chip>5:30PM</v-chip>
 
@@ -48,6 +42,7 @@
 
         
     </v-card>
+</v-col>
 </template>
 
 <script>

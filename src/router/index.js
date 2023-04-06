@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Login from '../views/LoginView.vue'
-
+import Happening from '../views/HappeningView.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -30,6 +30,10 @@ const routes = [
     path: '/chat',
     name: 'chat',
     component: () => import(/* webpackChunkName: "about" */ '../views/ChatView.vue')
+  },{
+    path: '/happening',
+    name: 'happening',
+    component: Happening
   }
 ]
 
