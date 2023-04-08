@@ -1,27 +1,32 @@
 <template>
     <div>
-        <h1 style="text-align: center;">Happening</h1>
-        <v-row style="margin-top: 20px;">
-            <v-cols cols="2" style="margin-left: 20px;">
-                <SideBar />
-            </v-cols>
-            <v-col cols="8" style="padding-left: 30px;">
-                <v-row st>
-                    <v-col cols="4">
-                        <EventCard />
-                    </v-col>
-                    <v-col cols="4">
-                        <EventCard />
-                    </v-col>
-                    <v-col cols="4">
-                        <EventCard />
-                    </v-col>
-                    <v-col cols="4">
-                        <EventCard />
-                    </v-col>
-                </v-row>
-            </v-col>
-        </v-row>
+        <div class="main-container">
+            <div style="flex-basis: 10%; flex-grow: 0; flex-shrink: 0; margin-left: 40px; margin-top: 50px;" class="h-sidebar"><div class="sidebar"><SideBar /></div></div>
+            <div class="card-container" style="flex-basis: 65%; flex-grow: 0; flex-shrink: 0;">
+                <div class="e-card">
+                    <EventCard />
+                </div>
+                <div class="e-card">
+                    <EventCard />
+                </div>
+                <div class="e-card">
+                    <EventCard />
+                </div>
+                <div class="e-card">
+                    <EventCard />
+                </div>
+                <div class="e-card">
+                    <EventCard />
+                </div>
+                <div class="e-card">
+                    <EventCard />
+                </div>
+                <div class="e-card">
+                    <EventCard />
+                </div>
+            </div>
+            <div style="flex-basis: 25%; flex-grow: 0; flex-shrink: 0; margin-left: 20px; margin-top: 50px;" class="h-participeted"><h1>Event card</h1></div>
+        </div>
     </div>
 </template>
 
@@ -37,9 +42,36 @@ export default {
 </script>
 
 <style scoped>
-.container-right {
-    border: 1px solid red;
+.main-container {
+    /* border: 1px solid red; */
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
+    /* flex-wrap: wrap; */
+}
+.card-container {
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid red; */
+    flex-wrap: wrap;
+}
+@media only screen and (max-width: 1000px) {
+  .h-sidebar {
+    display: none;
+  }
+  .h-participeted {
+    display: none;
+  }
+  .e-card {
+    margin-top: 50px;
+  }
+  .card-container {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 1465px) and (min-width: 1200px) {
+  .sidebar {
+    margin-left: 50px;
+    /* border: 1px solid black; */
+  }
 }
 </style>

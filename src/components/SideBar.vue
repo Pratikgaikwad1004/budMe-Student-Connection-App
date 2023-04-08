@@ -26,10 +26,11 @@ ul {
 }
 
 .main {
-    height: 100%;
+    /* margin-top: 50px; */
+    height: 60vh;
     justify-content: center;
     width: 100%;
-    padding: 0px 10px;
+    /* padding: 0px 10px; */
 }
 
 .main-2 {
@@ -37,17 +38,17 @@ ul {
     display: flex;
     align-content: center;
     align-items: flex-start;
-    margin-top: 100px;
+    /* margin-top: 100px; */
 }
 
 .menu {
-    height: 40%;
+    height: 100%;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
     border: 1px solid black;
-    padding: 10px 0px;
-    margin-left: 20px;
+    padding: 0px 0px;
+    /* margin-left: 20px; */
     border-radius: 40px;
     background-color: rgb(211, 209, 209);
 }

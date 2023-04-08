@@ -1,5 +1,5 @@
 <template>
-        <v-card :loading="loading" class="mx-auto my-5" max-width="300">
+        <v-card class="card">
             <template slot="progress">
                 <!-- <v-progress-linear color="deep-purple" height="1" indeterminate></v-progress-linear> -->
             </template>
@@ -24,7 +24,7 @@
             <v-card-title class="py-0">Book Your Slot</v-card-title>
 
             <v-card-text class="py-0">
-                <v-chip-group v-model="selection" active-class="deep-purple accent-4 white--text" column>
+                <v-chip-group active-class="deep-purple accent-4 white--text" column>
                     <v-chip>5:30PM</v-chip>
 
                     <v-chip>7:30PM</v-chip>
@@ -51,4 +51,15 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+    @media only screen and (max-width: 1000px) {
+  .card {
+    width: 350px;
+  }
+}
+.card {
+    width: 300px;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+</style>
