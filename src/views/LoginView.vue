@@ -168,6 +168,11 @@ export default {
     background: linear-gradient(to bottom, #8e86d9, #474092, #2f2f75);
 }
 
+@media (min-width: 768px){
+    .container {
+        max-width: 100%;
+    }
+}
 .main {
     width: 350px;
     height: 500px;
