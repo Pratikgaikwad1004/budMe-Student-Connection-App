@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Login from '../views/LoginView.vue'
 import Happening from '../views/HappeningView.vue'
+import eventRegistrationForm from '@/views/eventRegistrationForm.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -40,6 +41,11 @@ const routes = [
     path: '/happening',
     name: 'happening',
     component: Happening
+  },
+  {
+    path: '/registerevent',
+    name: 'registerevent',
+    component: eventRegistrationForm
   }
 ]
 
