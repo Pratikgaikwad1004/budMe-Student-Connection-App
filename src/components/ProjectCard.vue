@@ -70,6 +70,7 @@ export default {};
     background-color: black;
     color: white;
     border-radius: 20px;
+    padding: 5px;
     position: absolute;
     /* bottom: 0; */
 }

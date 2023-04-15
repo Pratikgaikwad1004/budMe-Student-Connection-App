@@ -32,6 +32,7 @@
     background-color: #000;
     color: white;
     border-radius: 20px;
+    padding: 5px;
 }
 .card-main {
     background-color: rgb(222, 221, 221);

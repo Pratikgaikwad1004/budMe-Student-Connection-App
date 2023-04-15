@@ -42,10 +42,10 @@ export default {
     box-shadow: 15px 0px 24px gray;
 }
 @media (max-width: 700px) {
-    .chat-dashboard {
+    .chat-sidebar {
         display: none;
     }
-    .chat-sidebar {
+    .chat-dashboard {
         flex-basis: 100%;
     }
 }

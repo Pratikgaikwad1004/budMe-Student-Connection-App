@@ -8,6 +8,7 @@
                     <li><v-icon color="black" size="50px">mdi-message-outline</v-icon></li>
                     <li><v-icon color="black" size="50px">mdi-account-group-outline</v-icon></li>
                     <li><v-icon color="black" size="50px">mdi-account-outline</v-icon></li>
+                    <li><v-icon color="black" size="50px">mdi-plus</v-icon></li>
                 </ul>
             </div>
         </div>

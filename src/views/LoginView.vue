@@ -94,7 +94,12 @@ export default {
                         if (result.authtoken) {
                             return alert("Account created");
                         } else {
-                            return alert("Some error occured")
+                            console.log(result);
+                            if (result.errors) {
+                                return alert(result.errors[0].msg)
+                            } else {
+                                return alert(result.error);
+                            }
                         }
                     })
                     .catch(error => console.log('error', error));
@@ -134,7 +139,8 @@ export default {
                             router.push("/");
                             return alert("Login Successful");
                         } else {
-                            return alert("Some Error Occured");
+                            console.log(result.error);
+                            return alert(result.error);
                         }
                     })
                     .catch(error => console.log('error', error));
@@ -168,11 +174,12 @@ export default {
     background: linear-gradient(to bottom, #8e86d9, #474092, #2f2f75);
 }
 
-@media (min-width: 768px){
+@media (min-width: 768px) {
     .container {
         max-width: 100%;
     }
 }
+
 .main {
     width: 350px;
     height: 500px;
