@@ -74,20 +74,9 @@ export default {
             this.img = event.target.files[0];
             const formData = new FormData();
             formData.append("img", this.img);
-            try {
+            try {   
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "multipart/form-data");
-
-                // var raw = JSON.stringify({
-                //     "img": "https://unsplash.com/photos/YvpLGlwNISY",
-                //     "title": "Nature",
-                //     "description": "aaaaaaaaaaaaaaaaaaaaaaa",
-                //     "institute": "SIT",
-                //     "time": [
-                //         "10:00am",
-                //         "11:00pm"
-                //     ]
-                // });
 
                 var requestOptions = {
                     method: 'POST',
@@ -105,7 +94,6 @@ export default {
             } catch (error) {
              console.log(error);   
             }
-            // console.log(this.img)
         }
     },
 }
