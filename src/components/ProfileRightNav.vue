@@ -9,20 +9,20 @@
     v-model="drawer"
   >
     <v-layout>
-    <div class="hello">Your Progress</div>
-      <v-layout class="circle">
-        </v-layout>
+      <div class="hello">Your Progress
+      <v-layout class="circle"> 
         <v-progress-circular
-          :rotate="90"
-          :size="200"
-          :width="15"
-          :value="value"
-          color="red"
-        >
-          {{ value }}
-        </v-progress-circular>
+        :rotate="90"
+        :size="200"
+        :width="15"
+        :value="value"
+        color="red"
+      >
+        {{ value }}
+      </v-progress-circular>
+      </v-layout>
+    </div>
     </v-layout>
-  
 
     <v-layout>
       <v-flex>
@@ -65,10 +65,7 @@ export default {};
 </script>
 
 <style scoped>
-.circle {
-  align: center;
-}
 .hello {
-  text-align: center;
+  text-align: center !important;
 }
 </style>

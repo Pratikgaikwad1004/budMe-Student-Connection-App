@@ -1,9 +1,7 @@
 <template>
   <div class="mt-10">
     <v-layout>
-      <v-flex>
         <div class="title">Latest Feed</div>
-      </v-flex>
       <v-flex text-right>
         <v-btn icon>
           <v-icon>mdi-menu</v-icon>

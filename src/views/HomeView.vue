@@ -27,13 +27,6 @@
       <v-btn icon class="mr-5">
         <v-icon>mdi-heart-outline</v-icon>
       </v-btn>
-      <v-avatar size="30">
-        <img
-          lazy-src="https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-          src="https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-          alt="John"
-        />
-      </v-avatar>
       <v-icon>mdi-menu-down</v-icon>
     </v-app-bar>
     <main-nav />
@@ -71,3 +64,7 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+
+</style>
