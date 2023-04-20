@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Login from '../views/LoginView.vue'
-
+import EventRegistration from '../views/EventRegistration.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -30,6 +30,11 @@ const routes = [
     path: '/chat',
     name: 'chat',
     component: () => import(/* webpackChunkName: "about" */ '../views/ChatView.vue')
+  },
+  {
+    path: '/eventregister',
+    name: 'event registration',
+    component: EventRegistration
   }
 ]
 
