@@ -1,20 +1,18 @@
 <template>
     <div class="main-container">
-        <div class="fearures">
-            <div id="feature-1">
-                <h5>Feature 1</h5>
+        <div class="project-details">
+                <h1>Title</h1>
+                <h5>Description</h5>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-            </div>
-            <div id="feature-2">
-                <h5>Feature 2</h5>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-            </div>
+                <div class="buttons">
+                    <button class="show-btn">More details</button>
+                    <button class="join-btn">Request to join</button>
+                </div>
         </div>
-        <div class="card-image">
-            <div class="card-img">
+        <div class="project-image">
+            <div class="project-img">
                 <img src="https://images.unsplash.com/photo-1620325867502-221cfb5faa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2957&q=80"
                     height="200" width="300" />
-                <button class="btn">Request to join</button>
             </div>
         </div>
     </div>
@@ -45,7 +43,7 @@ export default {};
         border: 1px solid black;
         justify-content: center;
     }
-    .card-img img {
+    .project-img img {
         width: 100%;
     }
 }
@@ -53,29 +51,36 @@ export default {};
 .main-container {
     display: flex;
     width: 40vw;
-    background-color: rgb(230, 230, 230);
+    background-color: #cdc8d8;
     justify-content: space-between;
+    border-radius: 10px;
 }
 
-#feature-2 {
-    margin-top: 20px;
-}
 
-.fearures {
+
+.project-details{
     padding: 0px 10px;
     margin-top: 5px;
 }
 
-.btn {
+
+.join-btn{
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 5px;   
+    margin: 10px 10px;
+}
+.show-btn {
     background-color: black;
     color: white;
-    border-radius: 20px;
-    padding: 5px;
-    position: absolute;
-    /* bottom: 0; */
+    border-radius: 5px;
+    padding: 5px;   
+    margin: 10px 10px;
 }
 
-.card-img {
+.project-img {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;

@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h1 class="heading">Collab</h1>
         <div class="collab-main">
             <div class="sidebar">
                 <div style="height: 100vh; display: flex; align-items: center; position: fixed;">
@@ -7,6 +8,7 @@
                 </div>
             </div>
             <div class="projects">
+                <h2>Ongoing Projects</h2>
                 <div style="margin-top: 20px;">
                     <ProjectCard />
                 </div>
@@ -24,6 +26,7 @@
                 </div>
             </div>
             <div class="joined">
+                <h2>Joined Project Groups</h2>
                 <div style="margin-top: 20px;">
                     <JoinedProjectCard />
                 </div>
@@ -55,6 +58,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.heading{
+    font-size: 50px;
+    text-align: center;
+}
 @media only screen and (max-width: 1300px) {
     .sidebar {
         display: none;
