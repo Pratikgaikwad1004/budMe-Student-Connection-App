@@ -3,11 +3,12 @@
         <div class="container">
             <div class="top">
                 <div class="top-item-left">
+                    <div class="close"><v-icon size="50">mdi-close</v-icon></div>
                     <div class="top-avatar">
                         <img src="https://www.w3schools.com/howto/img_avatar.png" alt="" />
                     </div>
                     <div style="margin-left: 30px;">
-                        <h3>Pratik Gaikwad</h3>
+                        <h3>{{ user.name }}</h3>
                     </div>
                 </div>
                 <div class="top-item-right">
@@ -20,7 +21,7 @@
                 </div>
             </div>
             <div class="middle">
-                <div class="incomming">
+                <!-- <div class="incomming">
                     <div class="incomming-message">
                         <p style="color: white;">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit recusandae illum reiciendis esse
@@ -39,54 +40,25 @@
                         </p>
                         <p style="text-align: right; color: gray;">12:00PM</p>
                     </div>
-                </div>
-                <div class="outgoing">
-                    <div class="outgoing-message">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, sunt recusandae aut mollitia
-                            deleniti sit qui quasi ea corrupti eveniet perspiciatis dolorem nisi accusamus non architecto at
-                            omnis saepe ex?
+                </div> -->
+                <div v-for="(message, i) in messages" :key="i" :class="message.type">
+                    <div :class="message.type + '-message'">
+                        <p :style="message.type === 'incomming' ? `color: white` : null">
+                            {{ message.msg }}
                         </p>
-                        <p style="text-align: right; color: gray;">12:00PM</p>
-                    </div>
-                </div>
-                <div class="outgoing">
-                    <div class="outgoing-message">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, sunt recusandae aut mollitia
-                            deleniti sit qui quasi ea corrupti eveniet perspiciatis dolorem nisi accusamus non architecto at
-                            omnis saepe ex?
-                        </p>
-                        <p style="text-align: right; color: gray;">12:00PM</p>
-                    </div>
-                </div>
-                <div class="outgoing">
-                    <div class="outgoing-message">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, sunt recusandae aut mollitia
-                            deleniti sit qui quasi ea corrupti eveniet perspiciatis dolorem nisi accusamus non architecto at
-                            omnis saepe ex?
-                        </p>
-                        <p style="text-align: right; color: gray;">12:00PM</p>
-                    </div>
-                </div>
-                <div class="outgoing">
-                    <div class="outgoing-message">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, sunt recusandae aut mollitia
-                            deleniti sit qui quasi ea corrupti eveniet perspiciatis dolorem nisi accusamus non architecto at
-                            omnis saepe ex?
-                        </p>
-                        <p style="text-align: right; color: gray;">12:00PM</p>
+                        <p
+                            :style="message.type === 'incomming' ? `text-align: right; color: white` : `text-align: right; color: gray;`">
+                            12:00PM</p>
                     </div>
                 </div>
             </div>
             <div class="bottom">
                 <div class="enter-message">
-                    <input type="text" placeholder="Enter Message" />
+                    <input type="text" @input="onChangeMessage($event)" @keyup.enter="onSend($event)"
+                        placeholder="Enter Message" autocomplete="off" />
                 </div>
                 <div class="send">
-                    <button><v-icon color="white">mdi-send-variant</v-icon></button>
+                    <button @click="onSend"><v-icon color="white">mdi-send-variant</v-icon></button>
                 </div>
             </div>
         </div>
@@ -94,8 +66,42 @@
 </template>
 
 <script>
+import router from '@/router';
 export default {
+    data() {
+        return {
+            sendTo: "",
+            user: {},
+        }
+    },
+    methods: {
 
+    },
+    props: {
+        message: String,
+        onChangeMessage: Function,
+        onSend: Function,
+        messages: Array
+    },
+    mounted() {
+        this.sendTo = router.history.current.params.userid;
+        console.log(this.sendTo);
+
+        if (this.sendTo.length !== 0) {
+            var requestOptions = {
+                method: 'POST',
+                redirect: 'follow'
+            };
+
+            fetch(`http://localhost:3000/api/v1/auth/getuser/${this.sendTo}`, requestOptions)
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result);
+                    this.user = result.user
+                })
+                .catch(error => console.log('error', error));
+        }
+    },
 }
 </script>
 
@@ -104,29 +110,35 @@ export default {
     display: flex;
     flex-direction: row;
     width: 100%;
-    padding-bottom: 50px;
-    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    padding-right: 10px;
 }
+
 .enter-message {
     width: 100%;
     flex-basis: 90%;
     margin-left: 20px;
 }
+
 .enter-message input {
     width: 100%;
     border-radius: 10px;
-    background-color: rgb(230,235,245);
+    background-color: rgb(230, 235, 245);
     padding: 10px;
 }
+
 .enter-message input:focus {
     outline: none;
 }
+
 .send button {
     margin-left: 20px;
     background-color: #3B71CA;
     border-radius: 5px;
     padding: 10px 20px;
 }
+
 .container {
     display: flex;
     flex-direction: column;
@@ -137,9 +149,9 @@ export default {
 .top {
     display: flex;
     justify-content: space-between;
-    padding: 20px 50px;
+    padding: 30px 20px;
     align-items: center;
-    height: 10vh;
+    height: 13vh;
     border-bottom: 0.5px solid gray;
 }
 
@@ -151,6 +163,11 @@ export default {
 .top-item-left {
     display: flex;
     align-items: center;
+}
+
+.close{
+    color: gray;
+    margin-right: 10px;
 }
 
 .top-item-right {
@@ -205,4 +222,5 @@ export default {
     max-width: 50%;
     padding: 25px 30px 10px 30px;
     border-radius: 30px 30px 0px 30px;
-}</style>
+}
+</style>

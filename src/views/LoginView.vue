@@ -136,6 +136,7 @@ export default {
                     .then(result => {
                         if (result.authtoken) {
                             localStorage.setItem("token", result.authtoken);
+                            localStorage.setItem("user", result.user._id);
                             router.push("/");
                             return alert("Login Successful");
                         } else {
