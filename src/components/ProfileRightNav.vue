@@ -1,17 +1,29 @@
 <template>
-  <v-navigation-drawer class="pa-4 mt-6" app clipped floating permanent right v-model="drawer">
+  <v-navigation-drawer
+    class="pa-4 mt-6"
+    app
+    clipped
+    floating
+    permanent
+    right
+    v-model="drawer"
+  >
     <v-layout>
-      <v-card height="300" width="100%">
-        <v-img
-          height="300"
-          width="100%"
-          src="https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-        ></v-img>
-      </v-card>
+    <div class="hello">Your Progress</div>
+      <v-layout class="circle">
+        </v-layout>
+        <v-progress-circular
+          :rotate="90"
+          :size="200"
+          :width="15"
+          :value="value"
+          color="red"
+        >
+          {{ value }}
+        </v-progress-circular>
     </v-layout>
-    <v-layout class="mt-6">
-      <div class="title">Pratik Gaikwad</div>
-    </v-layout>
+  
+
     <v-layout>
       <v-flex>
         <v-layout>
@@ -29,7 +41,9 @@
     <v-layout class="mt-4 subtitle-2 grey--text">
       Pratik is a freelance developer!
       <br />
-      <br />Moved to the US 7 years ago for college and now working as a full time software developer and helping people reach their goals through entrepreneurship!
+      <br />Moved to the US 7 years ago for college and now working as a full
+      time software developer and helping people reach their goals through
+      entrepreneurship!
     </v-layout>
     <v-layout class="mt-5">
       <v-flex>
@@ -50,5 +64,11 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
+.circle {
+  align: center;
+}
+.hello {
+  text-align: center;
+}
 </style>
