@@ -2,10 +2,10 @@
     <div>
         <div class="chat-container">
             <div class="chat-sidebar">
-                <ChatSidebar />
+                <ChatSidebar :onChange="onChange"/>
             </div>
             <div class="chat-dashboard">
-                <ChatDashboard :onChangeMessage="onChangeMessage" :onSend="onSend" :messages="messages" />
+                <ChatDashboard :key="refresh" :onChangeMessage="onChangeMessage" :onSend="onSend" :messages="messages" />
             </div>
         </div>
     </div>
@@ -23,13 +23,15 @@ export default {
             socket: io("http://localhost:3000"),
             messages: [],
             message: "",
-            receviedMsg: ""
+            receviedMsg: "",
+            refresh: 0
         }
     },
     mounted() {
         const token = localStorage.getItem("token");
         const user = localStorage.getItem("user");
         console.log(user);
+        this.getChats();
 
         if (!token) {
             alert("Please login first");
@@ -41,15 +43,21 @@ export default {
             console.log("mess", data);
             // this.receviedMsg = data.message;
             this.messages.push({ type: "incomming", msg: data.message, from: data.from, to: data.to });
-            this.addMsgInDB(data.from, data.to, data.message, "incomming")
+            this.addMsgInDB(data.to, data.from, data.message, "incomming")
         })
         // console.log(this.sendTo);
         // console.log(this.messages);
     },
     components: { ChatSidebar, ChatDashboard },
     methods: {
-        onReceiveMsg() {
+        onChange() {
             // console.log("rinning");
+            if (this.sendTo !== router.history.current.params.userid) {
+                this.sendTo = router.history.current.params.userid;
+                this.refresh += 1;
+                this.messages = [];
+                this.getChats();
+            }
 
         },
         onChangeMessage(e) {
@@ -95,6 +103,32 @@ export default {
             this.message = "";
             e.target.value = "";
         },
+
+        getChats() {
+            const user = localStorage.getItem("user")
+            const myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            const raw = JSON.stringify({
+                "userID": user,
+                "toID": this.sendTo
+            });
+
+            const requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            fetch("http://localhost:3000/api/v1/msg/getchats", requestOptions)
+                .then(response => response.json())
+                .then(result => {
+                    console.log("chats", result.chats);
+                    this.messages = result.chats
+                })
+                .catch(error => console.log('error', error));
+        }
     },
 }
 </script>

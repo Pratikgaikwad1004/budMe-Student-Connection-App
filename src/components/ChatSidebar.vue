@@ -13,7 +13,7 @@
                 <h3>Recent</h3>
                 <div class="chat-list">
                     <div v-for="(user, index) in users" :key="index" class="" style="margin-top: 10px; cursor: pointer;">
-                        <ChatUserCard :user="user" />
+                        <ChatUserCard :user="user" :onChange="onChange" />
                     </div>
                 </div>
             </div>
@@ -44,7 +44,9 @@ export default {
             }
         }
     },
-
+    props: {
+        onChange: Function
+    },
     mounted() {
         // this.fetchUsers();
     }

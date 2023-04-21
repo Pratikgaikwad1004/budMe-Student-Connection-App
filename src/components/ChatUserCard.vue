@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="chat-user-card-main" @click="$router.push(`/chat/${user._id}`)">
+        <div class="chat-user-card-main" @click="$router.push(`/chat/${user._id}`) && onChange()">
             <div class="avatar">
                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="" />
             </div>
@@ -16,6 +16,7 @@
 export default {
     props: {
         user: Object,
+        onChange: Function
     },
     mounted() {
         // console.log(this.user)

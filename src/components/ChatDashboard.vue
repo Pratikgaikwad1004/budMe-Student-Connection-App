@@ -85,7 +85,7 @@ export default {
     },
     mounted() {
         this.sendTo = router.history.current.params.userid;
-        console.log(this.sendTo);
+        // console.log(this.sendTo);
 
         if (this.sendTo.length !== 0) {
             var requestOptions = {
