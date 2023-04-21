@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid d-flex">
 
-                <a class="navbar-brand" style="color: black" href="#">ConnectMe</a>
+                <a class="navbar-brand" style="color: black" href="/">ConnectMe</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -12,13 +12,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" style="color: black" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" style="color: black" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color: black" href="#">Events</a>
+                            <a class="nav-link" style="color: black" href="/happening">Events</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color: black" href="#">Collab</a>
+                            <a class="nav-link" style="color: black" href="/collab">Collab</a>
                         </li>
                     </ul>
                 </div>
@@ -58,6 +58,7 @@ export default {
 
 .chat-icon{
     margin:0px 5px;
+    cursor : pointer;
 }
 .logout-btn{
     background-color: white;

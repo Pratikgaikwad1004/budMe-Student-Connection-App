@@ -5,7 +5,8 @@
                 <h5>Description</h5>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
                 <div class="buttons">
-                    <button class="show-btn">More details</button>
+                    <ProjectModal/>
+                    <!-- <button class="show-btn"><ProjectModal/></button> -->
                     <button class="join-btn">Request to join</button>
                 </div>
         </div>
@@ -19,7 +20,10 @@
 </template>
 
 <script>
-export default {};
+import ProjectModal from './ProjectModal.vue';
+export default {
+    components: { ProjectModal }
+};
 </script>
 
 <style scoped>
