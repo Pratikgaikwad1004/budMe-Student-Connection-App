@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import router from '@/router/index';
 export default {
     data() {
         return {
@@ -74,12 +75,13 @@ export default {
                     .then(response => response.json())
                     .then(result => {
                         if(result.success){
-                            this.img = "";
+                            this.img = null;
                             this.title = "";
                             this.description ="";
                             this.institute="";
                             this.time=""; 
                             this.Location="";
+                            router.push('/');
                         }
                         else{
                             alert(result.error);
