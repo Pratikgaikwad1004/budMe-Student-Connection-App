@@ -6,7 +6,7 @@
         <img src="../assets/home_anime.jpg" width="270px" alt="anime">
       </div>
 
-      <div class="feed">
+      <div class="feed" >
         <div class="home-cards">
           <div class="home-card">
             <HomeCard />
