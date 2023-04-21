@@ -16,7 +16,7 @@
       </div>
 
       <v-spacer></v-spacer>
-      <v-btn dark depressed color="#E7596F" class="text-none mr-5">
+      <v-btn dark depressed color="#E7596F" class="text-none mr-1">
         <span class="mr-2">
           <v-icon class="mr-2">mdi-plus</v-icon>Create New Post
         </span>
@@ -32,7 +32,7 @@
     <main-nav />
     <profile-right-nav />
 
-    <v-content>
+    <v-content class="pro">
       <ProfilePage />
     </v-content>
   </v-app>
@@ -66,5 +66,18 @@ export default {
 </script>
 
 <style scoped>
+.v-main__wrap {
+    flex: 1 1 auto;
+    max-width: 100%;
+    position: relative;
+    left: -104px;
+}
+.pro{
+  flex: 1 1 auto;
+    max-width: 100%;
+    position: relative;
+    left: -135px;
+
+}
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer color="grey lighten-5" floating class="pa-4" app permanent v-model="drawer">
+  <v-navigation-drawer color="grey lighten-5" floating class="pa-4" app permanent v-model="drawer" width="320">
     <v-layout class="pa-1">
       <div>
         <v-img
@@ -27,7 +27,7 @@
             <div class="mt-4 title">Kaustubh Mani Tripathi</div>
             <div class="mt-1 subtitle-2 grey--text">Symbiosis Institute of Technology, Pune</div>
             <div class="mt-5">
-              <v-layout>
+              <v-layout style="overflow-y: auto;">
                 <v-flex>
                   <div class="subtitle-2">Contributions </div>
                   <div class="subtitle-2 grey--text">116</div>

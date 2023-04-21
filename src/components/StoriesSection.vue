@@ -44,4 +44,10 @@ export default {};
 </script>
 
 <style>
+.v-main__wrap {
+    flex: 1 1 auto;
+    max-width: 100%;
+    position: relative;
+    left: -104px;
+}
 </style>
