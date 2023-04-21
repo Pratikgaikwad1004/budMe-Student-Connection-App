@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="collab">
         <h1 class="heading">Collab</h1>
         <div class="collab-main">
             <div class="sidebar">
@@ -58,11 +58,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.heading{
+.heading {
     font-size: 50px;
     text-align: center;
 }
+
+.collab {
+    background-color: rgb(243, 236, 246);
+}
+
 @media only screen and (max-width: 1300px) {
     .sidebar {
         display: none;
@@ -78,6 +82,7 @@ export default {
         flex-basis: 30%;
     }
 }
+
 @media only screen and (max-width: 1050px) {
     .projects {
         flex-basis: 100%;
@@ -87,10 +92,12 @@ export default {
         flex-direction: column;
         align-items: center;
     }
+
     .joined {
         display: none;
     }
 }
+
 @media only screen and (max-width: 550px) {
     .projects {
         flex-basis: 100%;
