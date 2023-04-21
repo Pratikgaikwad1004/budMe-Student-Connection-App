@@ -1,11 +1,7 @@
 <template>
     <div>
+        <AppBar/>
         <div class="main-container">
-            <div class="h-sidebar">
-                <div class="sidebar" style="margin-left: 40px;">
-                    <SideBar />
-                </div>
-            </div>
             <div class="card-container" style="">
                 <div class="e-card">
                     <EventCard />
@@ -56,12 +52,12 @@
 <script>
 import EventCard from '@/components/EventCard.vue';
 import ParticipateCard from '@/components/ParticipateCard.vue';
-import SideBar from '@/components/SideBar.vue';
+import AppBar from '@/components/AppBar.vue';
 export default {
     components: {
         EventCard,
-        SideBar,
-        ParticipateCard
+        ParticipateCard,
+        AppBar
     }
 }
 </script>
@@ -98,14 +94,6 @@ export default {
     flex-shrink: 0;
 }
 
-.h-sidebar {
-    margin-top: 20px;
-    flex-basis: 10%;
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin-left: 40px;
-    margin-top: 50px;
-}
 
 @media only screen and (max-width: 1163px) {
     .h-sidebar {
@@ -139,14 +127,7 @@ export default {
 }
 
 @media only screen and (max-width: 1461px) {
-    .h-sidebar {
-        /* display: none; */
-        flex-basis: 10%;
-        flex-grow: 0;
-        flex-shrink: 0;
-        margin-left: 40px;
-        margin-top: 50px;
-    }
+    
 
     .h-participeted {
         /* display: none; */
@@ -156,7 +137,6 @@ export default {
         margin-left: 20px;
         margin-top: 50px;
         margin-right: 50px;
-        border: 2px solid black;
         padding: 20px;
 
     }
@@ -176,9 +156,4 @@ export default {
     }
 }
 
-@media screen and (max-width: 1465px) and (min-width: 1200px) {
-    .sidebar {
-        margin-left: 50px;
-        /* border: 1px solid black; */
-    }
-}</style>
+</style>

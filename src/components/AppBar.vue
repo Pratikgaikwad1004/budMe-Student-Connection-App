@@ -57,7 +57,7 @@ export default {
 }
 
 .chat-icon{
-    margin:0px 5px;
+    
 }
 .logout-btn{
     background-color: white;
