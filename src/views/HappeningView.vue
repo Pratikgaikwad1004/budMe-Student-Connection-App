@@ -1,11 +1,7 @@
 <template>
     <div>
+        <AppBar />
         <div class="main-container">
-            <div class="h-sidebar">
-                <div class="sidebar" style="margin-left: 40px;">
-                    <SideBar />
-                </div>
-            </div>
             <div class="card-container" style="">
                 <div class="e-card">
                     <EventCard />
@@ -57,11 +53,15 @@
 import EventCard from '@/components/EventCard.vue';
 import ParticipateCard from '@/components/ParticipateCard.vue';
 import SideBar from '@/components/SideBar.vue';
+import NavBar from '@/components/NavBar.vue';
+import AppBar from '@/components/AppBar.vue';
 export default {
     components: {
         EventCard,
         SideBar,
-        ParticipateCard
+        ParticipateCard,
+        NavBar,
+        AppBar
     }
 }
 </script>
@@ -85,9 +85,11 @@ export default {
     padding: 20px;
     margin-top: 20px;
 }
+
 .h-participeted div {
     margin-top: 30px;
 }
+
 .card-container {
     display: flex;
     justify-content: center;
@@ -133,6 +135,7 @@ export default {
     .e-card {
         margin-top: 50px;
     }
+
     .main-container {
         display: inline;
     }
