@@ -12,7 +12,7 @@
         <div class="project-image">
             <div class="project-img">
                 <img src="https://images.unsplash.com/photo-1620325867502-221cfb5faa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2957&q=80"
-                    height="200" width="300" />
+                    height="200" width="300" style="border-radius: 8px 8px 0px 0px;" />
             </div>
         </div>
     </div>
@@ -25,14 +25,16 @@ export default {};
 <style scoped>
 @media only screen and (max-width: 1300px) {
     .main-container {
-        min-width: 60vw;
+        min-width: 300px;
         border: 1px;
+        flex-direction: column;
     }
 }
 @media only screen and (max-width: 1000px) {
     .main-container {
-        min-width: 90vw;
+        min-width: 300px;
         border: 1px;
+        flex-direction: column;
     }
 }
 @media only screen and (max-width: 550px) {
@@ -50,10 +52,11 @@ export default {};
 
 .main-container {
     display: flex;
-    width: 40vw;
+    width: 300px;
     background-color: #cdc8d8;
     justify-content: space-between;
     border-radius: 10px;
+    flex-direction: column-reverse;
 }
 
 
@@ -81,8 +84,8 @@ export default {};
 }
 
 .project-img {
-    display: flex;
+    /* display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: flex-end; */
 }
 </style>

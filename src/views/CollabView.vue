@@ -1,46 +1,35 @@
 <template>
-    <div class="collab">
-        <h1 class="heading">Collab</h1>
+    <div>
+        <AppBar/>
+        <h2 class="ongoing">Ongoing Projects</h2>
         <div class="collab-main">
-            <div class="sidebar">
-                <div style="height: 100vh; display: flex; align-items: center; position: fixed;">
-                    <SideBar />
+            <div class="project-card">
+                <div class="project-items">
+                    <ProjectCard/>
+                </div>
+                <div class="project-items">
+                    <ProjectCard/>
+                </div>
+                <div class="project-items">
+                    <ProjectCard/>
+                </div>
+                <div class="project-items">
+                    <ProjectCard/>
                 </div>
             </div>
-            <div class="projects">
-                <h2>Ongoing Projects</h2>
-                <div style="margin-top: 20px;">
-                    <ProjectCard />
+            <div class="joined-card">
+                <!-- <h2 style="text-align: center; width: 100%;">Joined Events</h2> -->
+                <div class="join-items">
+                    <JoinedProjectCard/>
                 </div>
-                <div style="margin-top: 20px;">
-                    <ProjectCard />
+                <div class="join-items">
+                    <JoinedProjectCard/>
                 </div>
-                <div style="margin-top: 20px;">
-                    <ProjectCard />
+                <div class="join-items">
+                    <JoinedProjectCard/>
                 </div>
-                <div style="margin-top: 20px;">
-                    <ProjectCard />
-                </div>
-                <div style="margin-top: 20px;">
-                    <ProjectCard />
-                </div>
-            </div>
-            <div class="joined">
-                <h2>Joined Project Groups</h2>
-                <div style="margin-top: 20px;">
-                    <JoinedProjectCard />
-                </div>
-                <div style="margin-top: 20px;">
-                    <JoinedProjectCard />
-                </div>
-                <div style="margin-top: 20px;">
-                    <JoinedProjectCard />
-                </div>
-                <div style="margin-top: 20px;">
-                    <JoinedProjectCard />
-                </div>
-                <div style="margin-top: 20px;">
-                    <JoinedProjectCard />
+                <div class="join-items">
+                    <JoinedProjectCard/>
                 </div>
             </div>
         </div>
@@ -48,78 +37,69 @@
 </template>
 
 <script>
-import SideBar from '@/components/SideBar.vue';
 import ProjectCard from '@/components/ProjectCard.vue';
 import JoinedProjectCard from '@/components/JoinedProjectCard.vue';
+import AppBar from '@/components/AppBar.vue'
 
 export default {
-    components: { SideBar, ProjectCard, JoinedProjectCard }
+    components: { ProjectCard, JoinedProjectCard ,AppBar}
 }
 </script>
 
-<style lang="scss" scoped>
-.heading {
-    font-size: 50px;
+<style scoped>
+@media (max-width: 1000px) {
+
+    .ongoing{
+        width :100%;
+        text-align: center;
+        padding-left: auto;
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+    .project-card{
+        flex-basis: 100%;
+        min-width: 100%;
+        justify-content: center;
+    }
+    .joined-card {
+        background-color: aqua;
+        border: 10px solid white;
+        display: none !important;
+    }
+}
+
+.ongoing{
+    width:70%; 
     text-align: center;
 }
 
-.collab {
-    background-color: rgb(243, 236, 246);
-}
-
-@media only screen and (max-width: 1300px) {
-    .sidebar {
-        display: none;
-    }
-
-    .projects {
-        flex-basis: 70%;
-        // border: 1px solid red;
-        width: 70vw;
-    }
-
-    .joined {
-        flex-basis: 30%;
-    }
-}
-
-@media only screen and (max-width: 1050px) {
-    .projects {
-        flex-basis: 100%;
-        // border: 1px solid red;
-        min-width: 100vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .joined {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 550px) {
-    .projects {
-        flex-basis: 100%;
-        // border: 1px solid red;
-        min-width: 100vw;
-    }
-}
-
-.sidebar {
-    flex-basis: 20%;
-    margin-left: 20px;
-}
-
-.projects {
-    flex-basis: 50%;
-}
-
-.joined {
-    flex-basis: 30%;
-}
-
-.collab-main {
+.collab-main{
     display: flex;
+    justify-content: space-between;
+}
+
+.project-card{
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 70% ;
     justify-content: space-around;
-}</style>
+}
+.project-items{
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.joined-card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-basis: 30%;
+    
+}
+
+.join-items{
+    width: 90%;
+    margin-top: 20px;
+    padding-right: 20px;
+}
+</style>
