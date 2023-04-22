@@ -53,6 +53,7 @@ export default {
     methods: {
         onSubmit() {
             try {
+                const user = localStorage.getItem("user")
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/json");
                 var raw = JSON.stringify({
@@ -61,7 +62,8 @@ export default {
                     "description": this.description,
                     "institute": this.institute,
                     "time": this.time,
-                    "location": this.Location
+                    "location": this.Location,
+                    "userID": user
                 });
 
                 var requestOptions = {
