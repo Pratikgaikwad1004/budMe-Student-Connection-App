@@ -28,7 +28,8 @@
 
                 <div class="form-group my-1">
                     <label for="eventDescription">Event Description</label>
-                    <textarea class="form-control" name="eventDescription" id="eventDescription" v-model="description" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" name="eventDescription" id="eventDescription" v-model="description"
+                        cols="30" rows="10"></textarea>
                 </div>
 
                 <button type="submit" class="btn" @click="onSubmit">Submit</button>
@@ -38,6 +39,7 @@
 </template>
 
 <script>
+import router from '@/router';
 export default {
     data() {
         return {
@@ -51,6 +53,7 @@ export default {
     },
     methods: {
         onSubmit() {
+            const userID = localStorage.getItem("user");
             try {
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/json");
@@ -60,7 +63,8 @@ export default {
                     "description": this.description,
                     "institute": this.institute,
                     "time": this.time,
-                    "location": this.Location
+                    "location": this.Location,
+                    "userID": userID
                 });
 
                 var requestOptions = {
@@ -73,19 +77,21 @@ export default {
                 fetch("http://localhost:3000/api/v1/event/addevent", requestOptions)
                     .then(response => response.json())
                     .then(result => {
-                        if(result.success){
+                        if (result.success) {
                             this.img = "";
                             this.title = "";
-                            this.description ="";
-                            this.institute="";
-                            this.time=""; 
-                            this.Location="";
+                            this.description = "";
+                            this.institute = "";
+                            this.time = "";
+                            this.Location = "";
+                            alert("Event Added Successfully");
+                            router.push("/");
                         }
-                        else{
+                        else {
                             alert(result.error);
                         }
                     })
-                    .catch(error => console.log('error', error));            
+                    .catch(error => console.log('error', error));
             } catch (error) {
                 console.log(error);
             }
@@ -116,6 +122,14 @@ export default {
             }
         }
     },
+    mounted() {
+        const userID = localStorage.getItem("user");
+
+        if(!userID) {
+            alert("Please login first");
+            router.push("/login")
+        }
+    }
 }
 </script>
 
@@ -124,16 +138,18 @@ export default {
     background-color: #b4aee8;
 }
 
-.body{
-    height : 100vh ; 
+.body {
+    height: 100vh;
     width: 100vw;
-     border:2px solid black;
-     display: flex;;
-     justify-content: center;
-     align-items: center;
-     
+    border: 2px solid black;
+    display: flex;
+    ;
+    justify-content: center;
+    align-items: center;
+
 }
-.main{
+
+.main {
     width: 40vw;
     height: 90vh;
     // border: 2px solid red;
@@ -143,21 +159,20 @@ export default {
     border-radius: 10px;
 }
 
-.container h2{
+.container h2 {
     text-align: center;
 }
 
-.eventDescription{
-    height:10vh
+.eventDescription {
+    height: 10vh
 }
 
 @media only screen and (max-width: 800px) {
-    .container h2{
+    .container h2 {
         font-size: 25px
     }
-    
-    .main{
+
+    .main {
         width: 70vw;
     }
-}
-</style>
+}</style>
