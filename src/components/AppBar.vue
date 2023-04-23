@@ -25,6 +25,9 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav nav-right">
                         <li class="nav-item">
+                            <a class="nav-link" style="color: black" href="/projectrequests">Project Requests</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" style="color: black" href="/registerevent">Add Event</a>
                         </li>
                         <li class="nav-item">

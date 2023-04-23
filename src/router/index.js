@@ -6,6 +6,7 @@ import Happening from '../views/HappeningView.vue'
 import eventRegistrationForm from '@/views/eventRegistrationForm.vue'
 import ProjectRegistrationForm from '@/views/ProjectRegistrationForm'
 import AddPosts from '@/views/AddPosts'
+import ProjectRequests from '@/views/ProjectRequests'
 Vue.use(VueRouter)
 
 const routes = [
@@ -63,6 +64,11 @@ const routes = [
     path: '/addposts',
     name: 'addposts',
     component: AddPosts
+  },
+  {
+    path: '/projectrequests',
+    name: 'projectrequests',
+    component: ProjectRequests
   }
 ]
 
