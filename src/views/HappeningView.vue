@@ -7,16 +7,6 @@
                     <EventCard :event="event" :getRegistered="getRegistered" />
                 </div>
             </div>
-            <div v-if="registeredEvents.length === 0" class="h-participeted">
-                <div>
-                    <p>You have no registered events</p>
-                </div>
-            </div>
-            <div v-else class="h-participeted">
-                <div v-for="(event, index) in registeredEvents" :key="index">
-                    <ParticipateCard :event="event" :getRegistered="getRegistered" />
-                </div>
-            </div>
         </div>
     </div>
 </template>
@@ -102,21 +92,21 @@ export default {
     /* flex-wrap: wrap; */
 }
 
-.h-participeted {
+/* .h-participeted {
     flex-basis: 25%;
     flex-grow: 0;
     flex-shrink: 0;
     margin-left: 20px;
     margin-top: 50px;
     margin-right: 50px;
-    /* border: 2px solid black; */
+    border: 2px solid black;
     padding: 20px;
     margin-top: 20px;
-}
+} */
 
-.h-participeted div {
+/* .h-participeted div {
     margin-top: 30px;
-}
+} */
 
 .card-container {
     display: flex;
@@ -128,14 +118,14 @@ export default {
     flex-shrink: 0;
 }
 
-.h-sidebar {
+/* .h-sidebar {
     margin-top: 20px;
     flex-basis: 10%;
     flex-grow: 0;
     flex-shrink: 0;
     margin-left: 40px;
     margin-top: 50px;
-}
+} */
 
 @media only screen and (max-width: 1163px) {
     .h-sidebar {

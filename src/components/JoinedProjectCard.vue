@@ -19,7 +19,6 @@
                 <img src="https://images.unsplash.com/photo-1620325867502-221cfb5faa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2957&q=80"
                     height="120" width="120" />
             </div>
-
         </div>
     </div>
 </template>

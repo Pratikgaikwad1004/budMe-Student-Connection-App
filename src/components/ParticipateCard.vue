@@ -69,8 +69,28 @@ export default {
 </script>
 
 <style scoped>
-.rmv-btn {
-    display: flex;
-    justify-content: flex-end;
-}
+    .v-list-item-avatar {
+        height: 150px;
+        width: 150px;
+    }
+
+    .text-h5 {
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .text {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .rmv-btn {
+        margin-top: 10px;
+    }
+
+    v-btn {
+        color: white;
+        background-color: #8e86d9;
+    }
 </style>
