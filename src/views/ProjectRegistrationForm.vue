@@ -1,5 +1,7 @@
 <template>
-    <div class="body" style="height : 100vh ; width: 100vw; border:2px solid black ">
+    <div>
+        <AppBar/>
+    <div class="body">
         <div class="main">
             <div class="container">
                 <h2>Project Registration Form</h2>
@@ -13,16 +15,6 @@
                     <label for="domain">Domain</label>
                     <input type="text" class="form-control" id="domain" v-model="domain" placeholder="Domain of Project">
                 </div>
-                <!-- <div class="form-group my-1">
-                    <label for="location">Location</label>
-                    <input type="email" class="form-control" id="location" v-model="Location"
-                        placeholder="ex. Pune , Mumbai">
-                </div> -->
-                <!-- <div class="form-group my-1">
-                    <label for="time">Date & Time</label>
-                    <input type="datetime-local" class="form-control" id="time" v-model="time"
-                        placeholder="enter time seperated with comma and space">
-                </div> -->
 
                 <label for="eventImage">Event Image</label> <br>
                 <input type="file" class="form-control-file my-3" @change="image" id="eventImage"> <br>
@@ -37,10 +29,12 @@
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <script>
 import router from '@/router/index';
+import AppBar from '@/components/AppBar.vue';
 export default {
     data() {
         return {
@@ -49,6 +43,9 @@ export default {
             description: "",
             domain: "",
         }
+    },
+    components:{
+        AppBar
     },
     mounted() {
         const user = localStorage.getItem("user");
@@ -134,9 +131,7 @@ export default {
 .body {
     height: 100vh;
     width: 100vw;
-    border: 2px solid black;
     display: flex;
-    ;
     justify-content: center;
     align-items: center;
 

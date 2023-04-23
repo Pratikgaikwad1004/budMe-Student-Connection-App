@@ -33,7 +33,7 @@
                         <li class="nav-item">
                             <a class="nav-link" style="color: black" href="/registerproject">Add Project</a>
                         </li>
-                        <v-icon size="30px" class="chat-icon">mdi-chat</v-icon>
+                        <v-icon size="30px" @click="$router.push('/chat')" class="chat-icon">mdi-chat</v-icon>
                     </ul>
                 </div>
                 <p class="btn btn-primary logout-btn" style="color: blue;" @click="Logout()" role="button">Logout</p>
@@ -44,7 +44,6 @@
 
 <script>
 import router from '@/router';
-// import bootstrap from 'bootstrap';
 export default {
     methods: {
         Logout() {

@@ -32,7 +32,6 @@ export default {
 
 <style lang="scss" scoped>
 .main{
-    border: 2px solid black;
     width:100%;
     height: 90vh;
 }
@@ -48,6 +47,6 @@ export default {
 .request-cards{
     margin: 10px;
     // display: flex;
-    
+
 }
 </style>
