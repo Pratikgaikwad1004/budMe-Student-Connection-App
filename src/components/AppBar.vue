@@ -36,7 +36,8 @@
                         <v-icon size="30px" @click="$router.push('/chat')" class="chat-icon">mdi-chat</v-icon>
                     </ul>
                 </div>
-                <p class="btn btn-primary logout-btn" style="color: blue;" @click="Logout()" role="button">Logout</p>
+                <!-- <p class="btn btn-primary logout-btn" style="color: blue;" @click="Logout()" role="button">Logout</p> -->
+                <v-icon size="40px" class="logout" @click="Logout()">mdi-logout</v-icon>
             </div>
         </nav>
     </div>
@@ -69,8 +70,11 @@ export default {
     margin:0px 5px;
     cursor : pointer;
 }
-.logout-btn{
-    background-color: white;
+
+.logout{
+    margin-right: 10px;
+    color: black;
+    margin-bottom: 5px;
 }
 
 </style>
