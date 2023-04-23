@@ -3,8 +3,8 @@
         <div class="container">
             <div class="top">
                 <div class="top-item-left">
-                    <div class="close"><v-icon size="50">mdi-close</v-icon></div>
-                    <div class="top-avatar">
+                    <div class="close "><v-icon size="50">mdi-close</v-icon></div>
+                    <div class="top-avatar ">
                         <img src="https://www.w3schools.com/howto/img_avatar.png" alt="" />
                     </div>
                     <div style="margin-left: 30px;">
@@ -13,10 +13,10 @@
                 </div>
                 <div class="top-item-right">
                     <div>
-                        <span><v-icon>mdi-phone</v-icon></span>
+                        <span><v-icon>mdi-phone </v-icon> </span>
                     </div>
                     <div>
-                        <span><v-icon>mdi-video</v-icon></span>
+                        <span><v-icon>mdi-video </v-icon> </span>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@ export default {
             fetch(`http://localhost:3000/api/v1/auth/getuser/${this.sendTo}`, requestOptions)
                 .then(response => response.json())
                 .then(result => {
-                    console.log(result);
+                    console.log(result) ;
                     this.user = result.user
                 })
                 .catch(error => console.log('error', error));
