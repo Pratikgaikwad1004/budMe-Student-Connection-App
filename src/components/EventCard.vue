@@ -29,7 +29,7 @@
 
         <v-card-actions>
             <v-btn color="deep-purple lighten-2" text @click="onSubmit()">
-                Intrested
+                Interested
             </v-btn>
         </v-card-actions>
 
@@ -86,8 +86,8 @@ export default {
     },
     mounted() {
         console.log(this.event);
-        const time = new Date(this.event.time)
-        this.time = time.toLocaleTimeString('en-US');
+        const d = new Date(this.event.time)
+        this.time = `${d.toLocaleDateString("en-US")}, ${d.toLocaleTimeString("en-US")}`
     }
 }
 </script>

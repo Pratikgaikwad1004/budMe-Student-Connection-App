@@ -3,16 +3,16 @@
         <div class="card-main">
 
             <div class="card-top">
-                
+
                 <div style="margin-top: 5px;">
-                    <h5>Project Name</h5>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                    <h5>{{ project.title }}</h5>
+                    <p>{{ project.description.slice(0, 60) }}...</p>
                 </div>
 
                 <div>
-                    <button class="btn">Leave project group</button>
+                    <button class="btn" @click="leaveProjectGroup()">Leave project group</button>
                 </div>
-    
+
             </div>
 
             <div class="card-img">
@@ -26,13 +26,43 @@
 
 <script>
 export default {
+    props: {
+        project: Object,
+        onJoined: Function
+    },
+    methods: {
+        leaveProjectGroup() {
+            try {
+                const user = localStorage.getItem("user");
+                const requestOptions = {
+                    method: 'DELETE',
+                    redirect: 'follow'
+                };
 
+                fetch(`http://localhost:3000/api/v1/project/leaveproject/${user}/${this.project._id}`, requestOptions)
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result.success){
+                            alert("Project Deleted")
+                            this.onJoined();
+                        }
+                    })
+                    .catch(error => console.log('error', error));
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 .card-img img {
     border-radius: 10px;
+}
+
+.card-img {
+    flex-basis: 20%;
 }
 
 .btn {
@@ -48,7 +78,6 @@ export default {
     padding: 10px;
     border-radius: 5px;
     display: flex;
+    justify-content: space-between;
 }
-
-
 </style>

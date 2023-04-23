@@ -4,7 +4,7 @@
         <div class="main-container">
             <div class="card-container" style="">
                 <div v-for="(event, index) in events" :key="index" class="e-card">
-                    <EventCard :event="event" :getRegistered="getRegistered"/>
+                    <EventCard :event="event" :getRegistered="getRegistered" />
                 </div>
             </div>
             <div v-if="registeredEvents.length === 0" class="h-participeted">
@@ -14,7 +14,7 @@
             </div>
             <div v-else class="h-participeted">
                 <div v-for="(event, index) in registeredEvents" :key="index">
-                    <ParticipateCard :event="event" :getRegistered="getRegistered"/>
+                    <ParticipateCard :event="event" :getRegistered="getRegistered" />
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@ export default {
                 })
                 .catch(error => console.log('error', error));
 
-                this.getRegistered()
+            this.getRegistered()
         } catch (error) {
             console.log(error);
         }
@@ -73,22 +73,22 @@ export default {
     methods: {
         getRegistered() {
             try {
-            const user = localStorage.getItem("user");
+                const user = localStorage.getItem("user");
 
-            const requestOptions = {
-                method: 'POST',
-                redirect: 'follow'
-            };
+                const requestOptions = {
+                    method: 'POST',
+                    redirect: 'follow'
+                };
 
-            fetch(`http://localhost:3000/api/v1/event/getregisteredevents/${user}`, requestOptions)
-                .then(response => response.json())
-                .then(result => {
-                    this.registeredEvents = result.events;
-                })
-                .catch(error => console.log('error', error));
-        } catch (error) {
-            console.log(error);
-        }
+                fetch(`http://localhost:3000/api/v1/event/getregisteredevents/${user}`, requestOptions)
+                    .then(response => response.json())
+                    .then(result => {
+                        this.registeredEvents = result.events;
+                    })
+                    .catch(error => console.log('error', error));
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 }

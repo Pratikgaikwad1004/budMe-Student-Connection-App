@@ -1,35 +1,22 @@
 <template>
     <div>
-        <AppBar/>
+        <AppBar />
         <h2 class="ongoing">Ongoing Projects</h2>
         <div class="collab-main">
             <div class="project-card">
-                <div class="project-items">
-                    <ProjectCard/>
+
+                <div v-for="(project, index) in projects" :key="index" class="project-items">
+                    <ProjectCard :updateModal="updateModal" :setCount="setCount" :project="project" :onJoined="onJoined" />
                 </div>
-                <div class="project-items">
-                    <ProjectCard/>
-                </div>
-                <div class="project-items">
-                    <ProjectCard/>
-                </div>
-                <div class="project-items">
-                    <ProjectCard/>
-                </div>
+
             </div>
-            <div class="joined-card">
+            <div v-if="joinedProjects.length === 0" class="joined-card">
+                <p style="margin-right: 100px;">You have no joined projects</p>
+            </div>
+            <div v-else class="joined-card">
                 <!-- <h2 style="text-align: center; width: 100%;">Joined Events</h2> -->
-                <div class="join-items">
-                    <JoinedProjectCard/>
-                </div>
-                <div class="join-items">
-                    <JoinedProjectCard/>
-                </div>
-                <div class="join-items">
-                    <JoinedProjectCard/>
-                </div>
-                <div class="join-items">
-                    <JoinedProjectCard/>
+                <div v-for="(project, index) in joinedProjects" :key="index" class="join-items">
+                    <JoinedProjectCard :project="project" :onJoined="onJoined" />
                 </div>
             </div>
         </div>
@@ -42,25 +29,72 @@ import JoinedProjectCard from '@/components/JoinedProjectCard.vue';
 import AppBar from '@/components/AppBar.vue'
 
 export default {
-    components: { ProjectCard, JoinedProjectCard ,AppBar}
+    data() {
+        return {
+            projects: [],
+            joinedProjects: [],
+            updateModal: 0
+        }
+    },
+    components: { ProjectCard, JoinedProjectCard, AppBar },
+    methods: {
+        setCount() {
+            this.updateModal++;
+            // console.log("value", this.updateModal);
+        },
+        onJoined() {
+            try {
+                const requestOptions = {
+                    method: 'POST',
+                    redirect: 'follow'
+                };
+
+                fetch("http://localhost:3000/api/v1/project/getrequestedprj/64215451df2dc4b05348ad8d", requestOptions)
+                    .then(response => response.json())
+                    .then(result => this.joinedProjects = result.myproj)
+                    .catch(error => console.log('error', error));
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    },
+    mounted() {
+        try {
+            const requestOptions = {
+                method: 'POST',
+                redirect: 'follow'
+            };
+
+            fetch("http://localhost:3000/api/v1/project/getallprojects", requestOptions)
+                .then(response => response.json())
+                .then(result => this.projects = result.projects)
+                .catch(error => console.log('error', error));
+
+            this.onJoined()
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 </script>
 
 <style scoped>
 @media (max-width: 1000px) {
 
-    .ongoing{
-        width :100%;
+    .ongoing {
+        width: 100%;
         text-align: center;
         padding-left: auto;
         margin-left: 10px;
         margin-top: 20px;
     }
-    .project-card{
+
+    .project-card {
         flex-basis: 100%;
         min-width: 100%;
         justify-content: center;
     }
+
     .joined-card {
         background-color: aqua;
         border: 10px solid white;
@@ -68,36 +102,37 @@ export default {
     }
 }
 
-.ongoing{
-    width:70%; 
+.ongoing {
+    width: 70%;
     text-align: center;
 }
 
-.collab-main{
+.collab-main {
     display: flex;
     justify-content: space-between;
 }
 
-.project-card{
+.project-card {
     display: flex;
     flex-wrap: wrap;
-    flex-basis: 70% ;
+    flex-basis: 70%;
     justify-content: space-around;
 }
-.project-items{
+
+.project-items {
     margin-left: 10px;
     margin-top: 20px;
 }
 
-.joined-card{
+.joined-card {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     flex-basis: 30%;
-    
+
 }
 
-.join-items{
+.join-items {
     width: 90%;
     margin-top: 20px;
     padding-right: 20px;

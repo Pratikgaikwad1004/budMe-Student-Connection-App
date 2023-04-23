@@ -1,11 +1,10 @@
 <template>
     <div>
         <div class="card" style="width: 80%;" >
-            <img class="card-img-top" src="../assets/logo.png" alt="Card image cap">
+            <img class="card-img-top" :src="post.image" alt="Card image cap" height="200" width="100">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p>
+                <h5 class="card-title">{{ post.username }}</h5>
+                <p class="card-text">{{ post.description.slice(0, 70) }}</p>
                     <v-btn icon>
                 <v-icon>mdi-heart</v-icon>
               </v-btn>
@@ -22,7 +21,9 @@
 
 <script>
 export default {
-
+  props: {
+    post: Object
+  }
 }
 </script>
 

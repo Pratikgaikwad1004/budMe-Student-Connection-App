@@ -25,10 +25,10 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav nav-right">
                         <li class="nav-item">
-                            <a class="nav-link" style="color: black" href="#">Add Event</a>
+                            <a class="nav-link" style="color: black" href="/registerevent">Add Event</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color: black" href="#">Add Project</a>
+                            <a class="nav-link" style="color: black" href="/registerproject">Add Project</a>
                         </li>
                         <v-icon size="30px" class="chat-icon">mdi-chat</v-icon>
                     </ul>
