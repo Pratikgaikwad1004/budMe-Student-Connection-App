@@ -8,7 +8,8 @@ export default new Vuex.Store({
     return {
         messages: [],
         contacts: [],
-
+        cards: [],
+        selectedCard: null,
         // initialize groups array
         groups: [],
 
@@ -20,11 +21,19 @@ export default new Vuex.Store({
         user: null
     }
 },
-
 mutations: {
     setUser (state, user) {
         state.user = user
     },
+    addCard(state, card) {
+        state.cards.push(card);
+      },
+      removeCard(state, id) {
+        state.cards = state.cards.filter((card) => card.id !== id);
+      },
+      setSelectedCard(state, card) {
+        state.selectedCard = card;
+      },
 
     setNotifications (state, notifications) {
         state.notifications = notifications
@@ -97,5 +106,17 @@ getters: {
     getContacts (state) {
         return state.contacts
     }
-}
+},
+actions: {
+    addCard({ commit }, card) {
+        commit("addCard", card);
+      },
+      removeCard({ commit }, id) {
+        commit("removeCard", id);
+      },
+      selectCard({ commit }, card) {
+        commit("setSelectedCard", card);
+      },
+  },
+  modules: {},
 })
