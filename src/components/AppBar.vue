@@ -33,16 +33,23 @@
                         <v-icon size="30px" class="chat-icon">mdi-chat</v-icon>
                     </ul>
                 </div>
-                <a class="btn btn-primary logout-btn" href="#" role="button">Logout</a>
+                <p class="btn btn-primary logout-btn" style="color: blue;" @click="Logout()" role="button">Logout</p>
             </div>
         </nav>
     </div>
 </template>
 
 <script>
+import router from '@/router';
 // import bootstrap from 'bootstrap';
 export default {
-
+    methods: {
+        Logout() {
+            localStorage.removeItem('user');
+            localStorage.removeItem('token');
+            router.push("/login")
+        }
+    }
 }
 </script>
 

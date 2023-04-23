@@ -36,6 +36,7 @@
 import AppBar from '@/components/AppBar.vue';
 import HomeCard from '@/components/HomeCard.vue';
 import HomeEventCard from '@/components/HomeEventCard.vue';
+import router from '@/router';
 export default {
   methods: {
     getRegistered() {
@@ -70,7 +71,13 @@ export default {
     HomeEventCard
   },
   mounted() {
+    const user = localStorage.getItem("user");
+    const token = localStorage.getItem("token");
     try {
+      if (!token || !user) {
+        console.log("aaaaaaaaa");
+      router.push("/login");
+    }
       var requestOptions = {
         method: 'POST',
         redirect: 'follow'

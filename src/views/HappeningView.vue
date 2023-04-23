@@ -27,6 +27,7 @@ import ParticipateCard from '@/components/ParticipateCard.vue';
 import SideBar from '@/components/SideBar.vue';
 import NavBar from '@/components/NavBar.vue';
 import AppBar from '@/components/AppBar.vue';
+import router from '@/router';
 export default {
     data() {
         return {
@@ -42,8 +43,12 @@ export default {
         AppBar
     },
     mounted() {
+        const user = localStorage.getItem("user");
+        const token = localStorage.getItem("token");
+        if (!token || !user) {
+            router.push("/login");
+        }
         try {
-            const user = localStorage.getItem("user");
 
             const requestOptions = {
                 method: 'POST',

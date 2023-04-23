@@ -11,8 +11,7 @@
 
                 <div class="form-group my-3">
                     <label for="domain">Domain</label>
-                    <input type="text" class="form-control" id="domain" v-model="domain"
-                        placeholder="Domain of Project">
+                    <input type="text" class="form-control" id="domain" v-model="domain" placeholder="Domain of Project">
                 </div>
                 <!-- <div class="form-group my-1">
                     <label for="location">Location</label>
@@ -30,7 +29,8 @@
 
                 <div class="form-group my-3">
                     <label for="eventDescription">Project Description</label>
-                    <textarea class="form-control" name="eventDescription" id="eventDescription" v-model="description" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" name="eventDescription" id="eventDescription" v-model="description"
+                        cols="30" rows="10"></textarea>
                 </div>
 
                 <button type="submit" class="btn" @click="onSubmit">Submit</button>
@@ -48,6 +48,13 @@ export default {
             title: "",
             description: "",
             domain: "",
+        }
+    },
+    mounted() {
+        const user = localStorage.getItem("user");
+        const token = localStorage.getItem("token");
+        if (!token || !user) {
+            router.push("/login");
         }
     },
     methods: {
@@ -74,18 +81,18 @@ export default {
                     .then(response => response.json())
                     .then(result => {
                         console.log(result);
-                        if(result.success){
+                        if (result.success) {
                             this.img = null;
                             this.title = "";
-                            this.description ="";
-                            this.domain="";
+                            this.description = "";
+                            this.domain = "";
                             router.push('/collab');
                         }
-                        else{
+                        else {
                             alert(result.error);
                         }
                     })
-                    .catch(error => console.log('error', error));            
+                    .catch(error => console.log('error', error));
             } catch (error) {
                 console.log(error);
             }
@@ -124,16 +131,18 @@ export default {
     background-color: #b4aee8;
 }
 
-.body{
-    height : 100vh ; 
+.body {
+    height: 100vh;
     width: 100vw;
-     border:2px solid black;
-     display: flex;;
-     justify-content: center;
-     align-items: center;
-     
+    border: 2px solid black;
+    display: flex;
+    ;
+    justify-content: center;
+    align-items: center;
+
 }
-.main{
+
+.main {
     width: 40vw;
     height: 90vh;
     // border: 2px solid red;
@@ -143,20 +152,20 @@ export default {
     border-radius: 10px;
 }
 
-.container h2{
+.container h2 {
     text-align: center;
 }
 
-.eventDescription{
-    height:10vh
+.eventDescription {
+    height: 10vh
 }
 
 @media only screen and (max-width: 800px) {
-    .container h2{
+    .container h2 {
         font-size: 25px
     }
-    
-    .main{
+
+    .main {
         width: 70vw;
     }
 }

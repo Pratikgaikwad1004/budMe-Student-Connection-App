@@ -27,6 +27,7 @@
 import ProjectCard from '@/components/ProjectCard.vue';
 import JoinedProjectCard from '@/components/JoinedProjectCard.vue';
 import AppBar from '@/components/AppBar.vue'
+import router from '@/router';
 
 export default {
     data() {
@@ -59,6 +60,11 @@ export default {
         }
     },
     mounted() {
+        const user = localStorage.getItem("user");
+        const token = localStorage.getItem("token");
+        if (!token || !user) {
+            router.push("/login");
+        }
         try {
             const requestOptions = {
                 method: 'POST',
