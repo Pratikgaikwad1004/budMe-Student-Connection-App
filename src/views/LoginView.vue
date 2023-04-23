@@ -1,8 +1,8 @@
 <template>
     <div class="container">
+        <img src="@/assets/logo.png" />
         <div class="main">
             <input type="checkbox" id="chk" aria-hidden="true">
-
             <div class="signup">
                 <div>
                     <label for="chk" aria-hidden="true">Sign up</label>
@@ -92,6 +92,9 @@ export default {
                     .then(response => response.json())
                     .then(result => {
                         if (result.authtoken) {
+                            this.signupEmail = ""
+                            this.signupUsername = ""
+                            this.signupPassword = ""
                             return alert("Account created");
                         } else {
                             console.log(result);
@@ -171,6 +174,7 @@ export default {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    flex-direction: column;
     font-family: 'Jost', sans-serif;
     background: linear-gradient(to bottom, #8e86d9, #474092, #2f2f75);
 }
