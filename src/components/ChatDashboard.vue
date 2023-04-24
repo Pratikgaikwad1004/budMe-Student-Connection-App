@@ -59,7 +59,7 @@
                 </div>
                 <div class="send">
                     <button @click="onSend"><v-icon color="white">mdi-send-variant</v-icon></button>
-                </div>
+                </div>     
             </div>
         </div>
     </div>
