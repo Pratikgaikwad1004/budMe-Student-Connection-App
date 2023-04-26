@@ -8,13 +8,11 @@
                 <div v-for="(project, index) in projects" :key="index" class="project-items">
                     <ProjectCard :updateModal="updateModal" :setCount="setCount" :project="project" :onJoined="onJoined" />
                 </div>
-
             </div>
             <div v-if="joinedProjects.length === 0" class="joined-card">
                 <p style="margin-right: 100px;">You have no joined projects</p>
             </div>
             <div v-else class="joined-card">
-                <!-- <h2 style="text-align: center; width: 100%;">Joined Events</h2> -->
                 <div v-for="(project, index) in joinedProjects" :key="index" class="join-items">
                     <JoinedProjectCard :project="project" :onJoined="onJoined" />
                 </div>
@@ -41,7 +39,6 @@ export default {
     methods: {
         setCount() {
             this.updateModal++;
-            // console.log("value", this.updateModal);
         },
         onJoined() {
             try {

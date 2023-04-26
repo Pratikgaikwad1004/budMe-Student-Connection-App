@@ -1,5 +1,4 @@
 <template>
-  <!-- Button trigger modal -->
   <div>
     <button type="button" class="btn btn-modal" @click="setCount()" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Show More

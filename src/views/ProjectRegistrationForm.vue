@@ -13,16 +13,6 @@
                     <label for="domain">Domain</label>
                     <input type="text" class="form-control" id="domain" v-model="domain" placeholder="Domain of Project">
                 </div>
-                <!-- <div class="form-group my-1">
-                    <label for="location">Location</label>
-                    <input type="email" class="form-control" id="location" v-model="Location"
-                        placeholder="ex. Pune , Mumbai">
-                </div> -->
-                <!-- <div class="form-group my-1">
-                    <label for="time">Date & Time</label>
-                    <input type="datetime-local" class="form-control" id="time" v-model="time"
-                        placeholder="enter time seperated with comma and space">
-                </div> -->
 
                 <label for="eventImage">Event Image</label> <br>
                 <input type="file" class="form-control-file my-3" @change="image" id="eventImage"> <br>

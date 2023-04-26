@@ -108,7 +108,7 @@ export default {
 .main-container {
     display: flex;
     width: 300px;
-    background-color: #cdc8d8;
+    background-color: #817f84;
     justify-content: space-between;
     border-radius: 10px;
     flex-direction: column-reverse;
