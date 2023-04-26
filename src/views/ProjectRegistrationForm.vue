@@ -1,5 +1,7 @@
 <template>
-    <div class="body" style="height : 100vh ; width: 100vw; border:2px solid black ">
+    <div>
+        <AppBar/>
+    <div class="body">
         <div class="main">
             <div class="container">
                 <h2>Project Registration Form</h2>
@@ -27,10 +29,12 @@
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <script>
 import router from '@/router/index';
+import AppBar from '@/components/AppBar.vue';
 export default {
     data() {
         return {
@@ -39,6 +43,9 @@ export default {
             description: "",
             domain: "",
         }
+    },
+    components:{
+        AppBar
     },
     mounted() {
         const user = localStorage.getItem("user");
@@ -124,9 +131,7 @@ export default {
 .body {
     height: 100vh;
     width: 100vw;
-    border: 2px solid black;
     display: flex;
-    ;
     justify-content: center;
     align-items: center;
 

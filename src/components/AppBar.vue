@@ -25,15 +25,19 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav nav-right">
                         <li class="nav-item">
+                            <a class="nav-link" style="color: black" href="/projectrequests">Project Requests</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" style="color: black" href="/registerevent">Add Event</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="color: black" href="/registerproject">Add Project</a>
                         </li>
-                        <v-icon size="30px" class="chat-icon">mdi-chat</v-icon>
+                        <v-icon size="30px" @click="$router.push('/chat')" class="chat-icon">mdi-chat</v-icon>
                     </ul>
                 </div>
-                <p class="btn btn-primary logout-btn" style="color: blue;" @click="Logout()" role="button">Logout</p>
+                <!-- <p class="btn btn-primary logout-btn" style="color: blue;" @click="Logout()" role="button">Logout</p> -->
+                <v-icon size="40px" class="logout" @click="Logout()">mdi-logout</v-icon>
             </div>
         </nav>
     </div>
@@ -41,7 +45,6 @@
 
 <script>
 import router from '@/router';
-// import bootstrap from 'bootstrap';
 export default {
     methods: {
         Logout() {
@@ -67,8 +70,11 @@ export default {
     margin:0px 5px;
     cursor : pointer;
 }
-.logout-btn{
-    background-color: white;
+
+.logout{
+    margin-right: 10px;
+    color: black;
+    margin-bottom: 5px;
 }
 
 </style>
